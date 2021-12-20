@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Image from '../icons/Image';
+import Note from '../icons/Note';
 import useStore from '../store/mode';
 import SidebarLink from './SidebarLink';
 interface PropsI {}
 const Sidebar = ({}: PropsI) => {
 	const darkmode = useStore((state) => state.darkmode);
 	return (
-		<aside className="  divide-y-2 divide-solid fixed top-0 left-0 w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
+		<aside className="  divide-y-2 divide-solid fixed top-0 left-0 w-12 sm:w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
 			<Link to="/">
 				<SidebarLink>
-					<span>Notes</span>
+					<span className="hidden sm:block ">Notes</span>
+					<Note />
 				</SidebarLink>
 			</Link>
 			<Link to="/media">
 				<SidebarLink>
-					<span>Media</span>
+					<span className="hidden sm:block">Media</span>
+					<Image />
 				</SidebarLink>
 			</Link>
 		</aside>

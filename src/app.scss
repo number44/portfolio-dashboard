@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	transition: all ease-in-out 0.3s;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.toggler {
+	position: relative;
+	span {
+		position: absolute;
+
+		background: white;
+		border-radius: 50%;
+		left: 0;
+	}
+	.left {
+		transform: translateX(0%);
+	}
+	.right {
+		transform: translateX(1.75rem);
+	}
 }

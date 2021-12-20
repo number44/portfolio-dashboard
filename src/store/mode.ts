@@ -1,3 +1,12 @@
-const mode = "";
+import create from 'zustand';
 
-export default mode;
+interface Store {
+	darkmode: boolean;
+	changeMode: () => void;
+}
+const useStore = create<Store>((set) => ({
+	darkmode: false,
+	changeMode: () => set((state) => ({ darkmode: !state.darkmode })),
+}));
+
+export default useStore;

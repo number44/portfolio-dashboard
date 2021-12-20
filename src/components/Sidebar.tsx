@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useStore from '../store/mode';
+import SidebarLink from './SidebarLink';
 interface PropsI {}
 const Sidebar = ({}: PropsI) => {
-    return (
-        <aside className="fixed top-0 left-0 w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 dark:text-zinc-300 ">
-            <Link to="/">
-                <div className=" link uppercase flex leading-8 bg-gray-700 m p-2 font-medium">
-                    <span>Notes</span>
-                </div>
-            </Link>
-            <Link to="/about">
-                <div className="link uppercase flex leading-8 bg-gray-700 m p-2 font-medium hover:bg-slate-700">
-                    <span>Media</span>
-                </div>
-            </Link>
-        </aside>
-    );
+	const darkmode = useStore((state) => state.darkmode);
+	return (
+		<aside className="  divide-y-2 divide-solid fixed top-0 left-0 w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
+			<Link to="/">
+				<SidebarLink>
+					<span>Notes</span>
+				</SidebarLink>
+			</Link>
+			<Link to="/media">
+				<SidebarLink>
+					<span>Media</span>
+				</SidebarLink>
+			</Link>
+		</aside>
+	);
 };
 
 export default Sidebar;

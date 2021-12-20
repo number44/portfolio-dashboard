@@ -20,12 +20,12 @@ const App = ({}: PropsI) => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<div className={` ${darkmode ? 'dark' : ''}   `}>
+				{/* Change for BrowserRouter if hash is not necessary */}
 				<HashRouter>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/about" element={<About />} />
 						<Route path="/media" element={<Media />} />
-
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 					</Routes>

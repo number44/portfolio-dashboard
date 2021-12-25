@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../layouts/Layout';
+
 interface PropsI {}
 interface MediaI {
 	id: number;
@@ -24,15 +25,15 @@ const Media = ({}: PropsI) => {
 	}, []);
 
 	return (
-		<Layout>
-			<div className="grid grid-cols-3 gap-3">
+		<div>
+			<div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3">
 				{data?.map((m) => (
 					<div key={m.id}>
 						<img src={m.url} alt="" />
 					</div>
 				))}
 			</div>
-		</Layout>
+		</div>
 	);
 };
 

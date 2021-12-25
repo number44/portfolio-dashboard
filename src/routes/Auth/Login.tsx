@@ -19,7 +19,7 @@ const Login = ({}: PropsI) => {
 					<input type="button" value="Login" className="mt-3 bg-purple-800 py-3 font-bold text-zinc-100 uppercase" />
 				</form>
 			</div>
-			<Link to="/register">Register</Link>
+			<Link to="/auth/register">Register</Link>
 		</main>
 	);
 };

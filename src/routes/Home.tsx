@@ -1,11 +1,13 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../layouts/Layout';
+import Box from '../layouts/Box';
+
 interface PropsI {}
 const Home = ({}: PropsI) => {
 	return (
-		<Layout>
-			<h1>Home</h1>
-		</Layout>
+		<>
+			<Box>Home Page</Box>
+		</>
 	);
 };
 

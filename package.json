@@ -7,22 +7,26 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^1.7.3",
-		"@emotion/react": "^11.7.1",
-		"@emotion/styled": "^11.6.0",
 		"@headlessui/react": "^1.4.2",
+		"@remirror/pm": "^1.0.9",
+		"@remirror/react": "^1.0.19",
+		"@tiptap/react": "^2.0.0-beta.102",
+		"@tiptap/starter-kit": "^2.0.0-beta.164",
 		"@vitejs/plugin-legacy": "^1.6.4",
 		"axios": "^0.24.0",
 		"framer-motion": "^4.1.17",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-hook-form": "^7.22.1",
+		"react-icons": "^4.3.1",
 		"react-query": "^3.34.5",
 		"react-router-dom": "^6.2.1",
+		"remirror": "^1.0.53",
 		"zustand": "^3.6.7"
 	},
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.4.0",
+		"@tailwindcss/typography": "^0.5.0",
 		"@types/react": "^17.0.33",
 		"@types/react-dom": "^17.0.10",
 		"@vitejs/plugin-react": "^1.0.7",
@@ -32,5 +36,8 @@
 		"tailwindcss": "^3.0.5",
 		"typescript": "^4.4.4",
 		"vite": "^2.7.2"
-	}
+	},
+	"browserslist": [
+		"since 2017"
+	]
 }

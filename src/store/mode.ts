@@ -5,7 +5,7 @@ interface Store {
 	changeMode: () => void;
 }
 const useStore = create<Store>((set) => ({
-	darkmode: false,
+	darkmode: true,
 	changeMode: () => set((state) => ({ darkmode: !state.darkmode })),
 }));
 

@@ -18,9 +18,11 @@ const NoteCategories = ({}: PropsI) => {
 		if (!id) {
 			return;
 		}
-		mutation.mutate(id, {
-			onSuccess: () => queryClient.invalidateQueries('categories'),
-		});
+		if (confirm('Are you sure this will deleta all children ? ')) {
+			mutation.mutate(id, {
+				onSuccess: () => queryClient.invalidateQueries('categories'),
+			});
+		}
 	};
 	if (isError) {
 		return (

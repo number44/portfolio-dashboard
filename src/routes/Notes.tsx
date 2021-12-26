@@ -3,7 +3,6 @@ import Button from '../layouts/Button';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { fetchNotes } from '../utils/fetching';
-import { useState } from 'react';
 interface PropsI {}
 const Notes = ({}: PropsI) => {
 	const { data, isError, isLoading, error } = useQuery<NoteI[], Error>('notes', fetchNotes);
@@ -38,16 +37,17 @@ const Notes = ({}: PropsI) => {
 				</div>
 			</Box>
 			<div className=" my-3 grid grid-cols-1  md:grid-cols-2 gap-3 html-text ">
-				{data?.map((note) => (
-					<Link key={note.id} to={`/note/${note.id}`}>
-						<Box>
-							<div className="flex justify-between items-center">
-								<h1>{note.name}</h1>
-								<p className=" font-serif">{note.category}</p>
-							</div>
-						</Box>
-					</Link>
-				))}
+				{data &&
+					data?.map((note) => (
+						<Link key={note.id} to={`/note/${note.id}`}>
+							<Box>
+								<div className="flex justify-between items-center">
+									<h1>{note.name}</h1>
+									<p className=" font-serif">{note.category}</p>
+								</div>
+							</Box>
+						</Link>
+					))}
 			</div>
 		</div>
 	);

@@ -6,6 +6,8 @@ import Note from '../icons/Note';
 import useStore from '../store/mode';
 import SidebarLink from './SidebarLink';
 import { BiCategory } from 'react-icons/bi';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { BsPlusLg } from 'react-icons/bs';
 const reducer = () => {
 	return {
 		open: 1,
@@ -43,10 +45,16 @@ const Sidebar = ({}: PropsI) => {
 						<Back />
 						<span className="hidden sm:block">Go Back</span>
 					</SidebarLink>
-					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes/categories	">
+					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes/categories">
 						<SidebarLink>
 							<span className="hidden sm:block">Categories</span>
 							<BiCategory />
+						</SidebarLink>
+					</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes/create">
+						<SidebarLink>
+							<span className="hidden sm:block">Create</span>
+							<BsPlusLg />
 						</SidebarLink>
 					</NavLink>
 				</aside>

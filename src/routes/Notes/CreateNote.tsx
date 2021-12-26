@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Box from '../../layouts/Box';
-import Editor from './Editor';
+import MyEditor from './MyEditor';
 import Button from '../../layouts/Button';
 import { Link, useNavigate } from 'react-router-dom';
 // import Editor from './Mirror';
@@ -19,11 +19,10 @@ const CreateNote = ({}: PropsI) => {
 				</div>
 			</Box>
 			<div className="my-4">
-				<Box>
+				<div>
 					<div className="h-1 bg-slate-900 my-2 opacity-5"></div>
-					<Editor />
-					<Button value="Save" />
-				</Box>
+					<MyEditor />
+				</div>
 			</div>
 		</>
 	);

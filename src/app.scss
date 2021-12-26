@@ -1,4 +1,4 @@
-@use './styles/editor.scss';
+@use './styles/editor';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -62,7 +62,7 @@ body {
 }
 
 .ProseMirror {
-	border: solid rgba(#ddd, 0) 4px;
+	border: solid rgba(#ddd, 0.3) 4px;
 	padding: 1rem;
 	&:focus {
 		border: solid #ddd 4px;

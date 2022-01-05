@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Box from '../layouts/Box';
 import { useMutation, useQueryClient } from 'react-query';
@@ -14,7 +13,6 @@ const CreateCategoryForm = ({}: PropsI) => {
 	} = useForm<CategoryI>();
 	const onSubmit: SubmitHandler<CategoryI> = (data) => {
 		mutation.mutate({ name: data.name });
-		console.log(data);
 	};
 
 	const mutation = useMutation(

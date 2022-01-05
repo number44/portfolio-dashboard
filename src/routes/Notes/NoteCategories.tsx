@@ -18,7 +18,7 @@ const NoteCategories = ({}: PropsI) => {
 		if (!id) {
 			return;
 		}
-		if (confirm('Are you sure this will deleta all children ? ')) {
+		if (confirm('Are you sure this will delete all children ? ')) {
 			mutation.mutate(id, {
 				onSuccess: () => queryClient.invalidateQueries('categories'),
 			});

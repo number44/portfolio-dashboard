@@ -6,13 +6,14 @@ import Note from '../icons/Note';
 import useStore from '../store/mode';
 import SidebarLink from './SidebarLink';
 import { BiCategory } from 'react-icons/bi';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { BsPlusLg } from 'react-icons/bs';
+import { BsPlusLg, BsPinMapFill } from 'react-icons/bs';
 const reducer = () => {
 	return {
 		open: 1,
 	};
 };
+
+type SideT = string | null;
 
 interface PropsI {}
 const Sidebar = ({}: PropsI) => {
@@ -20,13 +21,19 @@ const Sidebar = ({}: PropsI) => {
 		open: 1,
 	});
 	const darkmode = useStore((state) => state.darkmode);
-	const [sidebar, toggleSide] = useState<boolean>(false);
-	const toggleSidebar = () => toggleSide(!sidebar);
+	const [sidebar, toggleSide] = useState<SideT>(null);
+	const toggleSidebar = (active: SideT) => toggleSide(active);
 
 	return (
 		<>
 			<aside className=" flex flex-col fixed top-0 left-0 w-12 sm:w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
-				<NavLink onClick={toggleSidebar} className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes">
+				<NavLink onClick={() => toggleSidebar('map')} className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/map">
+					<SidebarLink>
+						<span className="hidden sm:block">Places</span>
+						<BsPinMapFill />
+					</SidebarLink>
+				</NavLink>
+				<NavLink onClick={() => toggleSidebar('notes')} className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes">
 					<SidebarLink>
 						<span className="hidden sm:block ">Notes</span>
 						<Note />
@@ -39,9 +46,9 @@ const Sidebar = ({}: PropsI) => {
 					</SidebarLink>
 				</NavLink>
 			</aside>
-			{sidebar && (
+			{sidebar === 'notes' && (
 				<aside className=" flex flex-col fixed top-0 left-0 w-12 sm:w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
-					<SidebarLink onClick={toggleSidebar}>
+					<SidebarLink onClick={() => toggleSidebar('back')}>
 						<Back />
 						<span className="hidden sm:block">Go Back</span>
 					</SidebarLink>
@@ -52,6 +59,26 @@ const Sidebar = ({}: PropsI) => {
 						</SidebarLink>
 					</NavLink>
 					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/notes/create">
+						<SidebarLink>
+							<span className="hidden sm:block">Create</span>
+							<BsPlusLg />
+						</SidebarLink>
+					</NavLink>
+				</aside>
+			)}
+			{sidebar === 'map' && (
+				<aside className=" flex flex-col fixed top-0 left-0 w-12 sm:w-48 overflow-x-hidden z-10 h-full pt-16 shadow-lg   bg-white dark:bg-slate-800 ">
+					<SidebarLink onClick={() => toggleSidebar('null')}>
+						<Back />
+						<span className="hidden sm:block">Go Back</span>
+					</SidebarLink>
+					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/map/categories">
+						<SidebarLink>
+							<span className="hidden sm:block">Categories</span>
+							<BiCategory />
+						</SidebarLink>
+					</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? 'bg-slate-100 dark:bg-slate-700' : '')} to="/map/create">
 						<SidebarLink>
 							<span className="hidden sm:block">Create</span>
 							<BsPlusLg />

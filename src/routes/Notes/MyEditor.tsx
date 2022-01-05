@@ -6,8 +6,8 @@ import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnorde
 import { BiCodeAlt, BiRedo, BiUndo } from 'react-icons/bi';
 import { GrBlockQuote } from 'react-icons/gr';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useMutation, useQueryClient, useQuery } from 'react-query';
 import { fetchCategories } from '../..//utils/fetching';
+import { useMutation, useQueryClient, useQuery } from 'react-query';
 
 import axios from 'axios';
 
@@ -92,6 +92,7 @@ const Editor = () => {
 	} = useForm<NoteI>();
 	const queryClient = useQueryClient();
 	const { data, isError, isLoading, error } = useQuery<CategoryI[], Error>('categories', fetchCategories);
+
 	const mutation = useMutation(
 		(newNote: NoteI) => {
 			return axios.post('/notes', newNote);

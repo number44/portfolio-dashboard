@@ -20,6 +20,9 @@ import NotFound from './routes/NotFound';
 import Layout from './layouts/Layout';
 import Auth from './layouts/Auth';
 import NoteCategories from './routes/Notes/NoteCategories';
+import Places from './routes/Places';
+import PlaceTypes from './routes/Map/PlaceTypes';
+import CreatePlace from './components/Places/CreatePlace';
 interface PropsI {}
 
 const queryClient = new QueryClient();
@@ -39,6 +42,10 @@ const App = ({}: PropsI) => {
 							<Route path="/note/:id" element={<Note />} />
 							<Route path="/notes/categories" element={<NoteCategories />} />
 							<Route path="/media" element={<Media />} />
+							<Route path="/map" element={<Places />} />
+							<Route path="/map/categories" element={<PlaceTypes />} />
+							<Route path="/map/create" element={<CreatePlace />} />
+
 							<Route path="*" element={<NotFound />} />
 						</Route>
 						<Route path="/auth" element={<Auth />}>

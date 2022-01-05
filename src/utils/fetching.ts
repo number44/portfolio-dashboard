@@ -14,4 +14,13 @@ async function fetchCategories() {
 	return data.data;
 }
 
-export { fetchPosts, fetchNotes, fetchCategories };
+async function fetchMapCategories() {
+	const { data } = await axios.get('/placetypes');
+	return data;
+}
+async function fetchPlaces() {
+	const { data } = await axios.get(`/places`);
+	return data.data;
+}
+
+export { fetchPosts, fetchNotes, fetchCategories, fetchMapCategories, fetchPlaces };

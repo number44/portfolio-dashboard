@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Box from '../../layouts/Box';
-import MyEditor from './MyEditor';
+import MyEditor from '../../components/MyEditor';
 import Button from '../../layouts/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Editor from './Mirror';
 interface PropsI {}
 const CreateNote = ({}: PropsI) => {

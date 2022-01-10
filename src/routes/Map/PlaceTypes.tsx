@@ -5,7 +5,7 @@ import Loader from '../../components/Loader';
 import { fetchMapCategories } from '../../utils/fetching';
 import { useMutation, useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
-import PlaceType from '../../components/PlaceType';
+import PlaceType from '../../components/Places/PlaceType';
 import Alert from '../../components/Alert';
 
 interface PropsI {}
@@ -36,12 +36,12 @@ const MapCategories = ({}: PropsI) => {
 
 	const queryClient = useQueryClient();
 	const { data, isError, isLoading, error } = useQuery<PlaceTypesI[], Error>('placetypes', fetchMapCategories);
-	const fetching = async () => {
-		const data = await fetchMapCategories();
-	};
-	useEffect(() => {
-		fetching();
-	}, []);
+	// const fetching = async () => {
+	// 	const data = await fetchMapCategories();
+	// };
+	// useEffect(() => {
+	// 	fetching();
+	// }, []);
 	const mutation = useMutation(
 		(newNote: any) => {
 			const config = {
@@ -62,11 +62,6 @@ const MapCategories = ({}: PropsI) => {
 	if (isError) {
 		return <Box>{error?.message}</Box>;
 	}
-	// const mutation = useMutation(postMapCategory,{
-	// 	onSuccess : ()=>{
-	// 		queryClient : ()
-	// 	}
-	// })
 
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 	">
@@ -87,7 +82,7 @@ const MapCategories = ({}: PropsI) => {
 					</label>
 					{errors.ename && <Alert>icon is required</Alert>}
 
-					<button type="submit" className="bg-cyan-500 font-semibold cursor-pointer   mt-2 hover:bg-cyan-600 text-zinc-100 px-3 py-2 rounded-sm">
+					<button type="submit" className="bg-primary font-semibold cursor-pointer   mt-2 hover:opacity-90 text-zinc-100 px-3 py-2 rounded-sm">
 						Create
 					</button>
 				</form>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Box from '../layouts/Box';
+import Box from '../../layouts/Box';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMutation, useQueryClient } from 'react-query';
-import Alert from './Alert';
+import Alert from '../Alert';
 import { VscChromeClose } from 'react-icons/vsc';
 import axios from 'axios';
 interface PropsI {
@@ -36,7 +36,6 @@ const PlaceType = ({ placeType }: PropsI) => {
 
 	const onSubmit: SubmitHandler<any> = (data) => {
 		console.log('data :', data);
-		reset();
 		mutationUpdate.mutate({ name: data.name, ename: data.ename });
 	};
 	const onChangeFile = (e: any) => {
@@ -98,7 +97,7 @@ const PlaceType = ({ placeType }: PropsI) => {
 							<img className=" w-32 h-32 mx-auto rounded-sm dark:bg-slate-700 bg-slate-100" src={url} />
 							<input type="file" {...register('icon', { required: false })} onChange={onChangeFile} className="hidden" name="image" />
 						</label>
-						<button type="submit" className="bg-cyan-500 font-semibold cursor-pointer   mt-2 hover:bg-cyan-600 text-zinc-100 px-3 py-2 rounded-sm">
+						<button type="submit" className="bg-primary font-semibold cursor-pointer    mt-2 hover:opacity-90 text-zinc-100 px-3 py-2 rounded-sm">
 							Edit
 						</button>
 					</form>

@@ -1,13 +1,10 @@
 import './app.scss';
-import { lazy, Suspense } from 'react';
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
 import Home from './routes/Home';
 import About from './routes/About';
 import Media from './routes/Media';
 
 import useStore from './store/mode';
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import Login from './routes/Auth/Login';
 import Register from './routes/Auth/Register';
 import { QueryClientProvider, QueryClient } from 'react-query';
@@ -22,7 +19,15 @@ import Auth from './layouts/Auth';
 import NoteCategories from './routes/Notes/NoteCategories';
 import Places from './routes/Places';
 import PlaceTypes from './routes/Map/PlaceTypes';
-import CreatePlace from './components/Places/CreatePlace';
+import CreatePlace from './routes/CreatePlace';
+import Rooms from './routes/Rooms';
+import Locations from './routes/Rooms/Locations';
+import Location from './routes/Rooms/Location';
+import RoomCreate from './routes/Rooms/CreateRoom';
+import Room from './routes/Rooms/Room';
+import CreateLocation from './routes/Rooms/CreateLocation';
+import Son from './routes/Son';
+
 interface PropsI {}
 
 const queryClient = new QueryClient();
@@ -45,7 +50,14 @@ const App = ({}: PropsI) => {
 							<Route path="/map" element={<Places />} />
 							<Route path="/map/categories" element={<PlaceTypes />} />
 							<Route path="/map/create" element={<CreatePlace />} />
+							<Route path="/rooms" element={<Rooms />} />
+							<Route path="/locations" element={<Locations />} />
+							<Route path="/locations/create" element={<CreateLocation />} />
+							<Route path="/rooms/create" element={<RoomCreate />} />
+							<Route path="/rooms/:id" element={<Room />} />
 
+							<Route path="/locations/:id" element={<Location />} />
+							<Route path="/son" element={<Son />} />
 							<Route path="*" element={<NotFound />} />
 						</Route>
 						<Route path="/auth" element={<Auth />}>
@@ -56,6 +68,7 @@ const App = ({}: PropsI) => {
 					</Routes>
 				</HashRouter>
 			</div>
+			<ReactQueryDevtools initialIsOpen={false} />
 		</QueryClientProvider>
 	);
 };

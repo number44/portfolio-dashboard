@@ -1,4 +1,4 @@
-import Box from '../../layouts/Box';
+import Box from '../layouts/Box';
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -6,9 +6,9 @@ import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnorde
 import { BiCodeAlt, BiRedo, BiUndo } from 'react-icons/bi';
 import { GrBlockQuote } from 'react-icons/gr';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { fetchCategories } from '../..//utils/fetching';
-import { useMutation, useQueryClient, useQuery } from 'react-query';
-
+import { fetchCategories } from '..//utils/fetching';
+import { useMutation, useQuery } from 'react-query';
+import queryClient from '../utils/queryClient';
 import axios from 'axios';
 
 interface PropsEI {
@@ -90,7 +90,6 @@ const Editor = () => {
 		watch,
 		formState: { errors },
 	} = useForm<NoteI>();
-	const queryClient = useQueryClient();
 	const { data, isError, isLoading, error } = useQuery<CategoryI[], Error>('categories', fetchCategories);
 
 	const mutation = useMutation(
@@ -125,7 +124,7 @@ const Editor = () => {
 						<div>
 							<select className="dark:bg-zinc-700 w-full" {...register('category', { required: true })}>
 								{data?.map((cat) => (
-									<option key={cat.id} value={cat.id}>
+									<option className="py-8 appearance-none" key={cat.id} value={cat.id}>
 										{cat.name}
 									</option>
 								))}

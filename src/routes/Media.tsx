@@ -1,36 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../layouts/Layout';
-
+import Box from '../layouts/Box';
+import { useDropzone } from 'react-dropzone';
+import { useEffect } from 'react';
+import { BiImageAdd } from 'react-icons/bi';
+import { useQuery } from 'react-query';
+import { fetchRooms } from '../utils/fetching';
+import { motion } from 'framer-motion';
 interface PropsI {}
-interface MediaI {
-	id: number;
-	name: string;
-	url: string;
-	alt: string;
-	size: string;
-	path: string;
-	create_at: string;
-	update_at: string;
-}
-const Media = ({}: PropsI) => {
-	const [data, setData] = useState<MediaI[]>();
-	const fetchData = () => {
-		fetch('http://localhost:8000/api/images/')
-			.then((res) => res.json())
-			.then((data) => setData(data))
-			.catch((error) => console.log('error :', error));
-	};
-	useEffect(() => {
-		fetchData();
-	}, []);
 
+const Media = ({}: PropsI) => {
+	const { data, isError, error, isLoading } = useQuery<RoomI[], Error>('rooms', fetchRooms);
+
+	const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+	useEffect(() => {
+		console.log('acceptedFiles :', acceptedFiles);
+	}, [acceptedFiles]);
 	return (
 		<div>
-			<div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3">
-				{data?.map((m) => (
-					<div key={m.id}>
-						<img src={m.url} alt="" />
+			<Box>
+				<section className="h-64 flex-center   flex-col  border-4 border-slate-300 border-dotted cursor-pointer">
+					<div {...getRootProps({ className: 'dropzone' })}>
+						<input {...getInputProps()} />
+						<div className="flex flex-col">
+							<BiImageAdd className="f text-5xl mb-2 mx-auto" />
+							<p>Drag 'n' drop some files here, or click to select files</p>
+						</div>
 					</div>
+				</section>
+			</Box>
+			<div className="h-8"></div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+				{data?.map((room) => (
+					<motion.div key={room.id} whileHover={{ scale: 0.95 }} className="cursor-pointer">
+						<Box>
+							<img className=" aspect-video" src={room.thumbnail} alt="" />
+							<h2 className="text-lg text-slate-800 dark:text-slate-200 mt-2">{room.name}</h2>
+						</Box>
+					</motion.div>
 				))}
 			</div>
 		</div>

@@ -10,8 +10,8 @@ const Layout = () => {
 		<>
 			<Navbar />
 			<Sidebar />
-			<main className=" dark:bg-slate-700 bg-slate-100 text-slate-800 dark:text-slate-100 ml-12  sm:ml-48 px-4 pt-20 min-h-screen h-full">
-				<div className="max-w-5xl">
+			<main className="  dark:bg-slate-700 bg-slate-100  text-slate-800 dark:text-slate-100 ml-12  sm:ml-48 px-4 pt-20 min-h-screen pb-8 ">
+				<div className="max-w-5xl mx-auto">
 					<Outlet />
 				</div>
 			</main>

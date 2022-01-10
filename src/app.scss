@@ -38,10 +38,6 @@ ul {
 	}
 }
 
-body {
-	min-height: 101vh;
-}
-
 .html-text {
 	position: relative;
 	h1 {
@@ -64,9 +60,14 @@ body {
 }
 
 .ProseMirror {
+	min-height: 300px;
 	border: solid rgba(#ddd, 0.3) 4px;
 	padding: 1rem;
 	&:focus {
 		border: solid #ddd 4px;
 	}
+}
+.map {
+	z-index: -1 !important;
+	background: red;
 }

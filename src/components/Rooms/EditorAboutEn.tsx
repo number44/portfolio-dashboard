@@ -7,7 +7,7 @@ interface PropsI {
 	dataprop: string;
 }
 
-const example = forwardRef<UploadEditorStateI, PropsI>(({ dataprop }: PropsI, ref) => {
+const example = forwardRef<UploadEditorStateI, any>(({ dataprop }, ref) => {
 	const aboutPl = useStore((state) => state.aboutPl);
 	const aboutEn = useStore((state) => state.aboutEn);
 	const changeEn = useStore((state) => state.changeAboutEn);

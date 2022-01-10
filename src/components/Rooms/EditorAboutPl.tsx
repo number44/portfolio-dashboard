@@ -6,7 +6,7 @@ import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 interface PropsI {
 	dataprop: string;
 }
-const example = forwardRef<UploadEditorStateI, PropsI>(({ dataprop }: PropsI, ref) => {
+const example = forwardRef<UploadEditorStateI, any>(({ dataprop }, ref) => {
 	const aboutPl = useStore((state) => state.aboutPl);
 	const changePl = useStore((state) => state.changeAboutPl);
 	const [data, setData] = useState('');

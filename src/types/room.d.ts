@@ -30,4 +30,16 @@ interface RoomI {
 	eabout: string;
 	info: string;
 	einfo: string;
+
+	b_internet: boolean;
+	b_water: boolean;
+	b_electricity: boolean;
+	b_gas: boolean;
+	b_taxes: boolean;
+	b_costs: number;
+	b_deposit: number;
+
+	price_2: number;
+	price_3: number;
+	price_4: number;
 }

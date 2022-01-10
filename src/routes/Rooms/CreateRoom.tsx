@@ -324,6 +324,38 @@ const RoomCreate = ({}: PropsI) => {
 						</select>
 					</Box>
 					<div className="h-4"></div>
+					<Box>
+						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Prices</h1>
+						<div className="grid grid-cols-1 max-w-md mx-auto sm:grid-cols-1 gap-3 sm:gap-8 px-3 pb-4">
+							<label htmlFor="rooms">
+								Rent for 2 until 6 months
+								<input type="number" className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" />
+							</label>
+							<label htmlFor="price">
+								Rent for 1 until 2 months
+								<input type="number" className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" />
+							</label>
+							<label htmlFor="price">
+								Rent for 6 months and more
+								<input type="number" className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" />
+							</label>
+						</div>
+					</Box>
+					<div className="h-4"></div>
+
+					<Box>
+						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Additional Costs</h1>
+						<div className="grid grid-cols-1 max-w-md mx-auto sm:grid-cols-1 gap-3 sm:gap-8 px-3 pb-4">
+							<label htmlFor="rooms">
+								Monthly bills per person
+								<input type="number" className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" />
+							</label>
+							<label htmlFor="price">
+								Security deposit
+								<input type="number" className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" />
+							</label>
+						</div>
+					</Box>
 					<div className="h-4"></div>
 					<Box>
 						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Info</h1>
@@ -348,7 +380,44 @@ const RoomCreate = ({}: PropsI) => {
 					</Box>
 					<div className="h-4"></div>
 					<Box>
-						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Info</h1>
+						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Bills</h1>
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+							<div className="flex justify-start items-center p-3">
+								<input className="focus:ring-3 focus:ring-primary text-primary mr-4 border-primary outline-primary ring-primary " type="checkbox" />
+								<label className="uppercase" htmlFor="internet">
+									Internet
+								</label>
+							</div>
+							<div className="flex justify-start items-center p-3">
+								<input className="focus:ring-3 focus:ring-primary text-primary mr-4 border-primary outline-primary ring-primary " type="checkbox" />
+								<label className="uppercase" htmlFor="internet">
+									Water
+								</label>
+							</div>
+							<div className="flex justify-start items-center p-3">
+								<input className="focus:ring-3 focus:ring-primary text-primary mr-4 border-primary outline-primary ring-primary " type="checkbox" />
+								<label className="uppercase" htmlFor="internet">
+									Electricity
+								</label>
+							</div>
+							<div className="flex justify-start items-center p-3">
+								<input className="focus:ring-3 focus:ring-primary text-primary mr-4 border-primary outline-primary ring-primary " type="checkbox" />
+								<label className="uppercase" htmlFor="internet">
+									Gas
+								</label>
+							</div>
+							<div className="flex justify-start items-center p-3">
+								<input className="focus:ring-3 focus:ring-primary text-primary mr-4 border-primary outline-primary ring-primary " type="checkbox" />
+								<label className="uppercase" htmlFor="internet">
+									Property Taxes
+								</label>
+							</div>
+						</div>
+					</Box>
+					<div className="h-4"></div>
+
+					<Box>
+						<h1 className="pb-8  pt-4 pl-3 text-2xl font font-medium">Description</h1>
 						<Tab.Group>
 							<Tab.List className={`grid grid-cols-2 py-3`}>
 								<Tab as={'div'}>{({ selected }) => <div className={`${selected ? 'dark:bg-slate-700 bg-slate-100' : ''} py-3 text-center cursor-pointer transition-colors duration-300`}>PL</div>}</Tab>

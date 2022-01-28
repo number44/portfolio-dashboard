@@ -8,13 +8,11 @@
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.4.2",
-		"@remirror/pm": "^1.0.9",
-		"@remirror/react": "^1.0.19",
 		"@tiptap/react": "^2.0.0-beta.102",
 		"@tiptap/starter-kit": "^2.0.0-beta.164",
-		"@vitejs/plugin-legacy": "^1.6.4",
 		"axios": "^0.24.0",
 		"framer-motion": "^4.1.17",
+		"js-file-download": "^0.4.12",
 		"leaflet": "^1.7.1",
 		"lodash": "^4.17.21",
 		"react": "^17.0.2",
@@ -25,7 +23,6 @@
 		"react-leaflet": "^3.2.2",
 		"react-query": "^3.34.5",
 		"react-router-dom": "^6.2.1",
-		"remirror": "^1.0.53",
 		"zustand": "^3.6.7"
 	},
 	"devDependencies": {
@@ -35,6 +32,7 @@
 		"@types/lodash": "^4.14.178",
 		"@types/react": "^17.0.33",
 		"@types/react-dom": "^17.0.10",
+		"@vitejs/plugin-legacy": "^1.6.4",
 		"@vitejs/plugin-react": "^1.0.7",
 		"autoprefixer": "^10.4.0",
 		"postcss": "^8.4.5",

@@ -1,25 +1,60 @@
-import { Link } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import { Link, useNavigate } from 'react-router-dom';
+import Box from '../../layouts/Box';
+import axios from 'axios';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 interface PropsI {}
+
 const Login = ({}: PropsI) => {
+	const router = useNavigate();
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm<LoginI>();
+
+	const onSubmit: SubmitHandler<LoginI> = (data) => {
+		console.log('xxxx :', data);
+		mutation.mutate(data);
+	};
+
+	const mutation = useMutation(
+		(newData: LoginI) => {
+			return axios.post('/auth/login', newData);
+		},
+		{
+			onSuccess: (data) => {
+				console.log('data :', data.data.token);
+				window.localStorage.setItem('key', data.data.token);
+				router('/');
+			},
+			onError: () => {
+				alert('Coś poszło nie tak');
+			},
+		}
+	);
+
 	return (
-		<main className="min-h-screen max-w-screen  flex-center flex-col bg-zinc-100">
-			<div className="box p-7 shadow-lg bg-white">
-				<h1 className="text-zinc-700 mb-2 text-3xl font-semibold  text-center">Login </h1>
-				<form className="flex  flex-col max-w-full">
+		<main className="mt-24">
+			<Box className="box p-7 shadow-lg max-w-sm ">
+				<h1 className=" mb-2 text-3xl font-semibold  text-center">Login </h1>
+				<form onSubmit={handleSubmit(onSubmit)} className="flex  flex-col max-w-sm">
 					<label className="my-0" htmlFor="email">
 						Email
 					</label>
-					<input className="  my-0 rounded " type="text" name="email" />
+					<input {...register('email')} className=" mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700  my-0" type="text" name="email" />
 					<label className="my-0" htmlFor="password">
-						Passowrd
+						Hasło
 					</label>
 
-					<input className="appearance-non  my-0 rounded" type="password" name="passowrd" />
-					<input type="button" value="Login" className="mt-3 bg-purple-800 py-3 font-bold text-zinc-100 uppercase" />
+					<input {...register('password', { required: true })} className="mx-auto w-full  mt-2  rounded-sm dark:bg-zinc-700" type="password" />
+
+					<input type="submit" value="Login" className="cursor-pointer  duration-300 mt-3 bg-primary py-3 font-bold text-zinc-100 uppercase" />
 				</form>
-			</div>
-			<Link to="/auth/register">Register</Link>
+				<Link to="/auth/register">Register</Link>
+			</Box>
 		</main>
 	);
 };

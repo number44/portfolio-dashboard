@@ -35,8 +35,9 @@ const PlaceType = ({ placeType }: PropsI) => {
 	const queryClient = useQueryClient();
 
 	const onSubmit: SubmitHandler<any> = (data) => {
-		console.log('data :', data);
-		mutationUpdate.mutate({ name: data.name, ename: data.ename });
+		if (confirm('Na pewno edytować ?')) {
+			mutationUpdate.mutate({ name: data.name, ename: data.ename });
+		}
 	};
 	const onChangeFile = (e: any) => {
 		const url = URL.createObjectURL(e.target.files[0]);
@@ -82,7 +83,7 @@ const PlaceType = ({ placeType }: PropsI) => {
 					<VscChromeClose />
 				</div>
 				<Box>
-					<h4 className="font-bold">Edit :</h4>
+					<h4 className="font-bold">Edytuj :</h4>
 
 					<form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
 						{errors.name && <Alert>polish name required</Alert>}

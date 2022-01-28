@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-async function fetchPosts() {
-	const { data } = await axios.get(`/images`);
-	return data.data;
-}
-
 async function fetchNotes() {
 	const { data } = await axios.get(`/notes`);
+	return data.data;
+}
+async function fetchNote(id: number) {
+	const { data } = await axios.get(`/notes/${id}`);
 	return data.data;
 }
 async function fetchCategories() {
@@ -26,25 +25,64 @@ async function fetchLocations() {
 	const { data } = await axios.get(`/locations`);
 	return data.data;
 }
+async function fetchDistricts() {
+	const { data } = await axios.get(`/districts`);
+	return data.data;
+}
+async function fetchDistrict(id: number) {
+	const { data } = await axios.get(`/districts/${id}`);
+	return data.data;
+}
+
 async function fetchLocation(id: number) {
 	const { data } = await axios.get(`/locations/${id}`);
 	return data.data;
 }
 async function fetchRooms() {
 	const { data } = await axios.get('/rooms');
-	return data.data;
+	return data;
 }
 async function fetchRoom(id: number) {
 	const { data } = await axios.get(`/rooms/${id}`);
-	return data.data;
+	return data;
 }
 async function fetchRoomtypes() {
 	const { data } = await axios.get('/roomtypes');
 	return data.data;
 }
+async function fetchRoomtype(id: number) {
+	const { data } = await axios.get(`/roomtypes/${id}`);
+	return data.data;
+}
+
 async function searchRooms(query: string) {
 	const { data } = await axios.get(`/rooms/search/${query}`);
 	return data.data;
 }
+async function fetchPictures() {
+	const { data } = await axios.get('/pictures');
+	return data;
+}
+async function fetchUsers() {
+	const { data } = await axios.get('/auth/users');
+	return data;
+}
+async function fetchMedia() {
+	const { data } = await axios.get('/files');
+	return data;
+}
+async function fetchPrices() {
+	const { data } = await axios.get('/prices/1');
+	return data.data;
+}
 
-export { searchRooms, fetchRooms, fetchRoomtypes, fetchPosts, fetchRoom, fetchNotes, fetchCategories, fetchMapCategories, fetchLocations, fetchLocation, fetchPlaces };
+async function fetchReservations() {
+	const { data } = await axios.get('/reservations');
+	return data;
+}
+
+async function fetchPolicy() {
+	const { data } = await axios.get('/policies/1');
+	return data.data;
+}
+export { fetchPolicy, fetchReservations, fetchPrices, fetchMedia, fetchNote, fetchPictures, fetchDistrict, fetchDistricts, fetchRoomtype, searchRooms, fetchRooms, fetchRoomtypes, fetchRoom, fetchNotes, fetchCategories, fetchMapCategories, fetchLocations, fetchLocation, fetchPlaces };

@@ -59,15 +59,57 @@ ul {
 	min-height: 100px;
 }
 
-.ProseMirror {
-	min-height: 300px;
-	border: solid rgba(#ddd, 0.3) 4px;
-	padding: 1rem;
-	&:focus {
-		border: solid #ddd 4px;
+.dark {
+	.ProseMirror {
+		outline: solid rgb(100, 99, 99) 2px;
 	}
 }
+.ProseMirror {
+	margin-top: 1rem;
+	min-height: 300px;
+	padding: 1rem;
+	border: none;
+	outline: solid #141b2d 2px;
+}
+// primary: '#972354',
+// secondary: '#141B2D',
+
 .map {
 	z-index: -1 !important;
-	background: red;
+}
+
+.absolute-center {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	transform: translate(-50%, -50%) scale(1);
+	left: 50%;
+	top: 50%;
+	transition: all ease-in-out 0.3s;
+	&:hover {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+}
+
+.modal {
+	z-index: 999;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: translate(-50%, -50%) scale(1);
+	left: 50%;
+	top: 50%;
+	transition: all ease-in-out 0.3s;
+	&:hover {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+}
+.gallery-image {
+	max-width: 80vw;
+}
+
+.close-btn {
+	z-index: 9999999999999999;
 }

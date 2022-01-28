@@ -26,11 +26,11 @@ const CreateCategoryForm = ({}: PropsI) => {
 		<Box>
 			<form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className="w-full">
 				<label htmlFor="name"></label>
-				<input className="w-full dark:bg-zinc-700 " placeholder="create new category" type="text" {...register('name', { required: true })} id="name" />
-				{errors.name && <span>This field is required</span>}
+				<input className="w-full dark:bg-zinc-700 " placeholder="utwórz kategorię notatki" type="text" {...register('name', { required: true })} id="name" />
+				{errors.name && <span>Pole wymagane</span>}
 
-				<button className="bg-cyan-500 font-semibold cursor-pointer  w-full mt-2 hover:bg-cyan-600 text-zinc-100 px-3 py-2 rounded-sm" type="submit">
-					{mutation.isLoading ? 'loading' : 'Create'}
+				<button className="bg-primary font-semibold cursor-pointer  w-full mt-2 hover:opacity-90  text-zinc-100 px-3 py-2 rounded-sm" type="submit">
+					{mutation.isLoading ? 'loading' : 'Utwórz'}
 				</button>
 			</form>
 		</Box>

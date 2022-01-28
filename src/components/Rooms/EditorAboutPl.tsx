@@ -12,7 +12,9 @@ const example = forwardRef<UploadEditorStateI, any>(({ dataprop }, ref) => {
 	const [data, setData] = useState('');
 	useEffect(() => {
 		editor?.commands.clearContent();
-
+	}, []);
+	useEffect(() => {
+		editor?.commands.clearContent();
 		editor?.commands.insertContent(dataprop);
 	}, [dataprop]);
 	useImperativeHandle(ref, () => ({

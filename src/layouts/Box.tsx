@@ -3,10 +3,11 @@ interface PropsI {
 	children: ReactNode;
 	my?: number;
 	onClick?: () => void;
+	className?: string;
 }
-const Box = ({ children, my, onClick }: PropsI) => {
+const Box = ({ children, className, my, onClick }: PropsI) => {
 	return (
-		<section onClick={onClick} className={` my-${my}  mx-auto bg-white rounded dark:bg-slate-800 shadow-sm p-3 w-full h-full`}>
+		<section onClick={onClick} className={` ${className}   mx-auto bg-white rounded dark:bg-slate-800 shadow-sm p-3 w-full h-full`}>
 			{children}
 		</section>
 	);

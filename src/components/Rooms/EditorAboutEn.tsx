@@ -23,9 +23,7 @@ const example = forwardRef<UploadEditorStateI, any>(({ dataprop }, ref) => {
 				changeEn(data);
 			}
 		},
-		clean: () => {
-			console.log('dataprop :', dataprop);
-		},
+		clean: () => {},
 	}));
 	const editor = useEditor({
 		extensions: [StarterKit],

@@ -1,11 +1,36 @@
-import React, { ReactChild, ReactNode } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { ReactChild, ReactNode, useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import axios from 'axios';
+import useAuthStore from '../store/authStore';
 interface PropsI {
 	children: ReactNode;
 }
+
 const Layout = () => {
+	const router = useNavigate();
+	const setName = useAuthStore((state) => state.setName);
+	const setEmail = useAuthStore((state) => state.setEmail);
+	useEffect(() => {
+		const xtoken = window.localStorage.getItem('key');
+		if (xtoken) {
+			axios.defaults.headers.common = { Authorization: `Bearer ${xtoken}` };
+		}
+
+		axios
+			.get('me')
+			.then((data) => {
+				let name: string = data.data.user.name;
+				let email = data.data.user.email;
+				setName(name);
+				setEmail(email);
+			})
+			.catch((err) => {
+				console.log('err :', err);
+				router('/auth/login');
+			});
+	}, []);
 	return (
 		<>
 			<Navbar />

@@ -8,7 +8,7 @@ interface Store {
 	changeSonData: (a: string, b: string, c: string, d: string) => void;
 }
 const useStore = create<Store>((set) => ({
-	room_id: '',
+	room_id: '1',
 	title: '',
 	price: '',
 	availability: '',

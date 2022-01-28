@@ -1,16 +1,18 @@
 interface RoomI {
 	id: number;
 	son_id: number;
+	location_id: number;
+	roomtype_id: number;
+	district_id: number;
+	location: string; // no Data
+	roomtype: string; // no Data
+
 	name: string;
 	ename: string;
+
 	price: number;
 	availability: string;
 	thumbnail: string;
-
-	location_id: number;
-	roomtype_id: number;
-	location: string;
-	roomtype: string;
 
 	internet: boolean;
 	tv: boolean;
@@ -21,7 +23,7 @@ interface RoomI {
 	oven: boolean;
 	equipped_kitchen: boolean;
 
-	rooms: number;
+	locales: number;
 	beds: number;
 	guests: number;
 	bathrooms: number;
@@ -36,6 +38,7 @@ interface RoomI {
 	b_electricity: boolean;
 	b_gas: boolean;
 	b_taxes: boolean;
+
 	b_costs: number;
 	b_deposit: number;
 

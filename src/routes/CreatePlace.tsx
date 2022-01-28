@@ -61,7 +61,7 @@ const CreatePlace = ({}: PropsI) => {
 		{
 			onSuccess: () => {
 				queryClient.invalidateQueries('places');
-				routes('/locations');
+				routes('/map');
 			},
 		}
 	);

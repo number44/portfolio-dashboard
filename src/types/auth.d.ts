@@ -6,6 +6,5 @@ interface RegisterI {
 	name: string;
 	email: string;
 	password: string;
+	password_confirmation: string;
 }
-
-export type { LoginI, RegisterI };

@@ -1,4 +1,6 @@
 import Box from '../layouts/Box';
+import HBox from '../layouts/HBox';
+
 import Button from '../layouts/Button';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
@@ -25,13 +27,10 @@ const Notes = ({}: PropsI) => {
 		<div>
 			<Box>
 				<div className=" uppercase  flex justify-between items-center ">
-					<div>Notes</div>
-					<div>
-						<Link to="/note/categories">
-							<Button value="Categories" />
-						</Link>
+					<div>Notatki</div>
+					<div className="flex items-stretch">
 						<Link className="mx-2" to="/notes/create">
-							<Button value="Create" />
+							<div className="bg-primary text-slate-100 font-medium py-2 px-3 rounded-sm">Utwórz</div>
 						</Link>
 					</div>
 				</div>
@@ -40,12 +39,12 @@ const Notes = ({}: PropsI) => {
 				{data &&
 					data?.map((note) => (
 						<Link key={note.id} to={`/note/${note.id}`}>
-							<Box>
+							<HBox>
 								<div className="flex justify-between items-center">
 									<h1>{note.name}</h1>
 									<p className=" font-serif">{note.category}</p>
 								</div>
-							</Box>
+							</HBox>
 						</Link>
 					))}
 			</div>

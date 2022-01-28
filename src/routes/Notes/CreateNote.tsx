@@ -13,14 +13,16 @@ const CreateNote = ({}: PropsI) => {
 	return (
 		<>
 			<Box>
-				<div className="flex justify-between items-center">
-					<h2 className="font-semibold">Create</h2>
-					<Button value="Go back" onClick={() => history(-1)} />
+				<div className="flex justify-between items-stretch  ">
+					<h2 className=" py-2 font-semibold h-full flex-center ">Utwórz</h2>
+					<div className="bg-primary px-4 h-full py-2 text-white uppercase  " onClick={() => history(-1)}>
+						Powrót
+					</div>
 				</div>
 			</Box>
-			<div className="my-4">
+			<div className="my-4 max-w-lg mx-auto">
 				<div>
-					<div className="h-1 bg-slate-900 my-2 opacity-5"></div>
+					<div className="h-1  bg-slate-900 my-2 opacity-5"></div>
 					<MyEditor />
 				</div>
 			</div>

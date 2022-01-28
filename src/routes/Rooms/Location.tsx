@@ -66,7 +66,7 @@ const Location = ({}: PropsI) => {
 			formData.append('name', newNote.name ? newNote.name : 'name');
 			formData.append('ename', newNote.ename ? newNote.ename : 'ename');
 			if (fileF) {
-				formData.append('icon', fileF ? fileF : 'icon');
+				formData.append('thumbnail', fileF ? fileF : 'thumbnail');
 			}
 
 			return axios.post(`/locations/${data?.id}`, formData, config);
@@ -95,7 +95,7 @@ const Location = ({}: PropsI) => {
 		}
 	);
 	const handleDelete = () => {
-		if (confirm('Are you sure this will delete all children ? ')) {
+		if (confirm('Czy jesteś absolutnie pewien / pewna ? Ta akcja skasuje wszystkie pokoje należące do tej lokalizacji ')) {
 			mutationDelete.mutate(newId);
 		}
 	};
